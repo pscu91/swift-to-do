@@ -7,18 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2ECFC372A27104E00C9007D /* swift_to_doApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECFC362A27104E00C9007D /* swift_to_doApp.swift */; };
-		C2ECFC392A27104E00C9007D /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECFC382A27104E00C9007D /* TodoView.swift */; };
-		C2ECFC3B2A27105000C9007D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECFC3A2A27105000C9007D /* Assets.xcassets */; };
-		C2ECFC3E2A27105000C9007D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECFC3D2A27105000C9007D /* Preview Assets.xcassets */; };
+		C20BBA3C2A2884DB009A5911 /* SwiftTodo in Resources */ = {isa = PBXBuildFile; fileRef = C20BBA3B2A2884DB009A5911 /* SwiftTodo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C2ECFC332A27104E00C9007D /* swift-to-do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-to-do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2ECFC362A27104E00C9007D /* swift_to_doApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_to_doApp.swift; sourceTree = "<group>"; };
-		C2ECFC382A27104E00C9007D /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
-		C2ECFC3A2A27105000C9007D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C2ECFC3D2A27105000C9007D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C20BBA3B2A2884DB009A5911 /* SwiftTodo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftTodo; sourceTree = "<group>"; };
+		C2ECFC332A27104E00C9007D /* SwiftTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +29,7 @@
 		C2ECFC2A2A27104E00C9007D = {
 			isa = PBXGroup;
 			children = (
-				C2ECFC352A27104E00C9007D /* swift-to-do */,
+				C20BBA3B2A2884DB009A5911 /* SwiftTodo */,
 				C2ECFC342A27104E00C9007D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,36 +37,17 @@
 		C2ECFC342A27104E00C9007D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2ECFC332A27104E00C9007D /* swift-to-do.app */,
+				C2ECFC332A27104E00C9007D /* SwiftTodo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C2ECFC352A27104E00C9007D /* swift-to-do */ = {
-			isa = PBXGroup;
-			children = (
-				C2ECFC362A27104E00C9007D /* swift_to_doApp.swift */,
-				C2ECFC382A27104E00C9007D /* TodoView.swift */,
-				C2ECFC3A2A27105000C9007D /* Assets.xcassets */,
-				C2ECFC3C2A27105000C9007D /* Preview Content */,
-			);
-			path = "swift-to-do";
-			sourceTree = "<group>";
-		};
-		C2ECFC3C2A27105000C9007D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				C2ECFC3D2A27105000C9007D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2ECFC322A27104E00C9007D /* swift-to-do */ = {
+		C2ECFC322A27104E00C9007D /* SwiftTodo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2ECFC412A27105000C9007D /* Build configuration list for PBXNativeTarget "swift-to-do" */;
+			buildConfigurationList = C2ECFC412A27105000C9007D /* Build configuration list for PBXNativeTarget "SwiftTodo" */;
 			buildPhases = (
 				C2ECFC2F2A27104E00C9007D /* Sources */,
 				C2ECFC302A27104E00C9007D /* Frameworks */,
@@ -82,9 +57,9 @@
 			);
 			dependencies = (
 			);
-			name = "swift-to-do";
+			name = SwiftTodo;
 			productName = "swift-to-do";
-			productReference = C2ECFC332A27104E00C9007D /* swift-to-do.app */;
+			productReference = C2ECFC332A27104E00C9007D /* SwiftTodo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +77,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C2ECFC2E2A27104E00C9007D /* Build configuration list for PBXProject "swift-to-do" */;
+			buildConfigurationList = C2ECFC2E2A27104E00C9007D /* Build configuration list for PBXProject "SwiftTodo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +90,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2ECFC322A27104E00C9007D /* swift-to-do */,
+				C2ECFC322A27104E00C9007D /* SwiftTodo */,
 			);
 		};
 /* End PBXProject section */
@@ -125,8 +100,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ECFC3E2A27105000C9007D /* Preview Assets.xcassets in Resources */,
-				C2ECFC3B2A27105000C9007D /* Assets.xcassets in Resources */,
+				C20BBA3C2A2884DB009A5911 /* SwiftTodo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +111,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ECFC392A27104E00C9007D /* TodoView.swift in Sources */,
-				C2ECFC372A27104E00C9007D /* swift_to_doApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +238,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"swift-to-do/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftTodo/Preview Content\"";
 				DEVELOPMENT_TEAM = HLS34A9223;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -280,7 +252,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tomato.swift-to-do";
+				PRODUCT_BUNDLE_IDENTIFIER = tomato.SwiftTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -295,7 +267,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"swift-to-do/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftTodo/Preview Content\"";
 				DEVELOPMENT_TEAM = HLS34A9223;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -309,7 +281,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tomato.swift-to-do";
+				PRODUCT_BUNDLE_IDENTIFIER = tomato.SwiftTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,7 +292,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2ECFC2E2A27104E00C9007D /* Build configuration list for PBXProject "swift-to-do" */ = {
+		C2ECFC2E2A27104E00C9007D /* Build configuration list for PBXProject "SwiftTodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2ECFC3F2A27105000C9007D /* Debug */,
@@ -329,7 +301,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2ECFC412A27105000C9007D /* Build configuration list for PBXNativeTarget "swift-to-do" */ = {
+		C2ECFC412A27105000C9007D /* Build configuration list for PBXNativeTarget "SwiftTodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2ECFC422A27105000C9007D /* Debug */,
