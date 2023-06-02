@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TodoView: View {
     
-    struct TodoList: Identifiable {
-        let id = UUID()
+    struct TodoList: Identifiable, Codable {
+        var id = UUID()
         var content: String
         var checked: Bool
     }
@@ -67,6 +67,13 @@ struct TodoView: View {
                 }
             }
             .listStyle(PlainListStyle())
+//            HStack(spacing: 50) {
+//                Button("저정하기", action:)
+//                    .padding(.all, 10)
+//                Button("불러오기", action:)
+//                    .padding(.all, 10)
+//            }
+//            .buttonStyle(BorderlessButtonStyle())
         }
         .padding(.top)
     }
@@ -76,14 +83,44 @@ struct TodoView: View {
         todoLists.append(inputList)
         todoString = ""
     }
-    
     func toggleCheckedState(_ i: Int) {
         todoLists[i].checked.toggle()
     }
-    
     func deleteList(_ i: Int) {
         todoLists.remove(at: i)
     }
+    
+//    func dataToJsonString() -> String? {
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//
+//        do {
+//            let data = try encoder.encode(todoLists)
+//            return String(data: data, encoding: .utf8)
+//        }
+//        catch {
+//            print(error.localizedDescription)
+//        }
+//
+//        return nil
+//    }
+//
+//    func saveTodoList() {
+//        let path = getDocumentPath().appendPathComponent("todolist.json")
+//        let jsonString = dataToJsonString()
+//
+//        if jsonString == nil {
+//            print("Error: No JSON String found")
+//            return
+//        }
+//
+//        do {
+//            try jsonString?.write(to:path, atomically: true, encoding: .utf8)
+//        }
+//        catch {
+//            print(error.localizedDescription)
+//        }
+//    }
 }
 
 struct TodoView_Previews: PreviewProvider {
