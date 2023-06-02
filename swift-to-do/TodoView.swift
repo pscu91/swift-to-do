@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TodoView: View {
-
+    
     struct TodoList: Identifiable {
         let id = UUID()
         var content: String
         var checked: Bool
     }
-
+    
     @State private var todoString = ""
     @State private var todoLists = [TodoList]()
-
+    
     var body: some View {
         VStack {
             Text("오늘은 무엇을 할까요?")
@@ -27,14 +27,13 @@ struct TodoView: View {
                     .symbolRenderingMode(.monochrome)
                     .foregroundStyle(.blue)
                 TextField("여기에 할 일을 입력...",
-                    text: $todoString,
-                    onCommit: {
-                        appendTodoList()
-                    }
-                )
+                          text: $todoString)
+                .onSubmit {
+                    appendTodoList()
+                }
             }
-                .textFieldStyle(DefaultTextFieldStyle())
-                .frame(width: 300, height: 50, alignment: .center)
+            .textFieldStyle(DefaultTextFieldStyle())
+            .frame(width: 300, height: 50, alignment: .center)
             List {
                 ForEach(0..<todoLists.count, id: \.self) { i in
                     HStack {
@@ -45,8 +44,8 @@ struct TodoView: View {
                             label: {
                                 Image(systemName:
                                         todoLists[i].checked == true ? "checkmark.square.fill" : "square")
-                                    .symbolRenderingMode(.monochrome)
-                                    .foregroundStyle(todoLists[i].checked == true ? .blue : .black)
+                                .symbolRenderingMode(.monochrome)
+                                .foregroundStyle(todoLists[i].checked == true ? .blue : .black)
                             }
                         )
                         Text(todoLists[i].content)
@@ -64,24 +63,24 @@ struct TodoView: View {
                             }
                         )
                     }
-                        .buttonStyle(BorderlessButtonStyle())
+                    .buttonStyle(BorderlessButtonStyle())
                 }
             }
-                .listStyle(PlainListStyle())
+            .listStyle(PlainListStyle())
         }
-            .padding(.top)
+        .padding(.top)
     }
-
+    
     func appendTodoList() {
         let inputList = TodoList(content: todoString, checked: false)
         todoLists.append(inputList)
         todoString = ""
     }
-
+    
     func toggleCheckedState(_ i: Int) {
         todoLists[i].checked.toggle()
     }
-
+    
     func deleteList(_ i: Int) {
         todoLists.remove(at: i)
     }
