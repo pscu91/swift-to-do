@@ -73,7 +73,7 @@ struct TodoView: View {
                     label: {
                         HStack {
                             Image(systemName: "folder")
-                            Text("저장하기")
+                            Text("임시저장")
                         }
                     }
                 )
@@ -100,9 +100,11 @@ struct TodoView: View {
         todoLists.append(inputList)
         todoString = ""
     }
+    
     func toggleCheckedState(_ i: Int) {
         todoLists[i].checked.toggle()
     }
+    
     func deleteList(_ i: Int) {
         todoLists.remove(at: i)
     }
