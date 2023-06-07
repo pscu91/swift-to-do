@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TodoView: View {
-    
+
     struct TodoList: Identifiable, Codable {
         var id = UUID()
         var content: String
         var checked: Bool
     }
-    
+
     @State private var todoString = ""
     @State private var todoLists = [TodoList]()
-    
+
     var body: some View {
         VStack {
             Text("오늘은 무엇을 할까요?")
@@ -27,13 +27,13 @@ struct TodoView: View {
                     .symbolRenderingMode(.monochrome)
                     .foregroundStyle(.blue)
                 TextField("여기에 할 일을 입력...",
-                          text: $todoString)
-                .onSubmit {
+                    text: $todoString)
+                    .onSubmit {
                     appendTodoList()
                 }
             }
-            .textFieldStyle(DefaultTextFieldStyle())
-            .frame(width: 300, height: 50, alignment: .center)
+                .textFieldStyle(DefaultTextFieldStyle())
+                .frame(width: 300, height: 50, alignment: .center)
             List {
                 ForEach(0..<todoLists.count, id: \.self) { i in
                     HStack {
@@ -44,8 +44,8 @@ struct TodoView: View {
                             label: {
                                 Image(systemName:
                                         todoLists[i].checked == true ? "checkmark.square.fill" : "square")
-                                .symbolRenderingMode(.monochrome)
-                                .foregroundStyle(todoLists[i].checked == true ? .blue : .black)
+                                    .symbolRenderingMode(.monochrome)
+                                    .foregroundStyle(todoLists[i].checked == true ? .blue : .black)
                             }
                         )
                         Text(todoLists[i].content)
@@ -63,23 +63,40 @@ struct TodoView: View {
                             }
                         )
                     }
-                    .buttonStyle(BorderlessButtonStyle())
+                        .buttonStyle(BorderlessButtonStyle())
                 }
             }
-            .listStyle(PlainListStyle())
-//            HStack(spacing: 50) {
-//                Button("저정하기", action:)
-//                    .padding(.all, 10)
-//                Button("불러오기", action:)
-//                    .padding(.all, 10)
-//            }
-//            .buttonStyle(BorderlessButtonStyle())
+                .listStyle(PlainListStyle())
+            HStack(spacing: 50) {
+                Button(
+                    action: { saveTodoList() },
+                    label: {
+                        HStack {
+                            Image(systemName: "folder")
+                            Text("저장하기")
+                        }
+                    }
+                )
+                    .padding(.all, 10)
+                Button(
+                    action: { loadTodoList() },
+                    label: {
+                        HStack {
+                            Image(systemName: "tray.and.arrow.up")
+                            Text("불러오기")
+                        }
+                    }
+                )
+                    .padding(.all, 10)
+            }
+                .buttonStyle(BorderlessButtonStyle())
         }
-        .padding(.top)
+            .padding(.top)
     }
-    
+
     func appendTodoList() {
         let inputList = TodoList(content: todoString, checked: false)
+
         todoLists.append(inputList)
         todoString = ""
     }
@@ -89,38 +106,84 @@ struct TodoView: View {
     func deleteList(_ i: Int) {
         todoLists.remove(at: i)
     }
-    
-//    func dataToJsonString() -> String? {
-//        let encoder = JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
-//
-//        do {
-//            let data = try encoder.encode(todoLists)
-//            return String(data: data, encoding: .utf8)
-//        }
-//        catch {
-//            print(error.localizedDescription)
-//        }
-//
-//        return nil
-//    }
-//
-//    func saveTodoList() {
-//        let path = getDocumentPath().appendPathComponent("todolist.json")
-//        let jsonString = dataToJsonString()
-//
-//        if jsonString == nil {
-//            print("Error: No JSON String found")
-//            return
-//        }
-//
-//        do {
-//            try jsonString?.write(to:path, atomically: true, encoding: .utf8)
-//        }
-//        catch {
-//            print(error.localizedDescription)
-//        }
-//    }
+
+    func getDocumentPath() -> URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+
+    func dataToJsonString() -> String? {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+
+        do {
+            let data = try encoder.encode(todoLists)
+            return String(data: data, encoding: .utf8)
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+
+        return nil
+    }
+
+    func saveTodoList() {
+        let path = getDocumentPath().appendingPathComponent("todolist.json")
+        let jsonString = dataToJsonString()
+
+        if jsonString == nil {
+            print("Error: No JSON String found")
+            return
+        }
+
+        do {
+            try jsonString?.write(to: path, atomically: true, encoding: .utf8)
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func jsonStringToData(_ jsonString: String) -> [TodoList]? {
+
+        let decoder = JSONDecoder()
+        let jsonData = jsonString.data(using: .utf8)
+
+        if jsonData == nil {
+            print("Error: Cannot convert json string to data")
+            return nil
+        }
+
+        do {
+            let returnList = try decoder.decode([TodoList].self, from: jsonData!)
+            return returnList
+        }
+
+        catch {
+            print(error.localizedDescription)
+        }
+
+        return nil
+    }
+
+    func loadTodoList() {
+        let path = getDocumentPath().appendingPathComponent("todolist.json")
+
+        do {
+            let jsonString = try String(contentsOf: path)
+            let jsonData = jsonStringToData(jsonString)
+
+            if jsonData == nil {
+                print("Error: no array found")
+                return
+            }
+
+            todoLists = jsonData!
+        }
+
+        catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 struct TodoView_Previews: PreviewProvider {
