@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct TextFieldView: View {
-    
+
     @State private var todoString = ""
-    @EnvironmentObject var todoLists : TodoLists
-    
+    @EnvironmentObject var todoLists: TodoLists
+    @FocusState private var isFocused: Bool
+
     var body: some View {
         HStack {
             Image(systemName: "square.and.pencil")
@@ -22,16 +23,19 @@ struct TextFieldView: View {
                 .onSubmit {
                 appendTodoList()
             }
+                .disableAutocorrection(true)
+                .focused($isFocused)
         }
             .textFieldStyle(DefaultTextFieldStyle())
             .frame(width: 300, height: 50, alignment: .center)
     }
-    
+
     func appendTodoList() {
         let inputList = TodoList(content: todoString, checked: false)
 
         todoLists.list.append(inputList)
         todoString = ""
+        isFocused = true
     }
 }
 

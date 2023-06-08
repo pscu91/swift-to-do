@@ -23,7 +23,7 @@ struct TodoListView: View {
                             Image(systemName:
                                     todoLists.list[i].checked == true ? "checkmark.square.fill" : "square")
                                 .symbolRenderingMode(.monochrome)
-                                .foregroundStyle(todoLists.list[i].checked == true ? .blue : .black)
+                                .foregroundStyle(.blue)
                         }
                     )
                     Text(todoLists.list[i].content)
