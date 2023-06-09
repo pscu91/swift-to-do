@@ -64,7 +64,6 @@
 				C2F36B7B2A31980100ED9D66 /* Object */,
 				C2F36B782A31978600ED9D66 /* View */,
 				C2ECFC362A27104E00C9007D /* swift_to_doApp.swift */,
-				C2ECFC382A27104E00C9007D /* HomeView.swift */,
 				C2ECFC3A2A27105000C9007D /* Assets.xcassets */,
 				C2ECFC3C2A27105000C9007D /* Preview Content */,
 			);
@@ -82,6 +81,7 @@
 		C2F36B782A31978600ED9D66 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2ECFC382A27104E00C9007D /* HomeView.swift */,
 				C2F36B792A3197B100ED9D66 /* HeaderView.swift */,
 				C2F36B7E2A319D8400ED9D66 /* TextFieldView.swift */,
 				C2F36B802A319E4200ED9D66 /* TodoListView.swift */,

@@ -40,8 +40,8 @@ struct TodoListView: View {
                                 .foregroundStyle(.red)
                         }
                     )
-                }
                     .buttonStyle(BorderlessButtonStyle())
+                }
             }
         }
             .listStyle(PlainListStyle())
@@ -53,11 +53,5 @@ struct TodoListView: View {
     
     func deleteList(_ i: Int) {
         todoLists.list.remove(at: i)
-    }
-}
-
-struct TodoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodoListView()
     }
 }
